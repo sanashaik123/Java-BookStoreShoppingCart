@@ -30,14 +30,14 @@
 					<th></th>
 				</tr>
 
-				<c:forEach items="${cart.cartItems}" var="cartItem" varstatus="loop">
+				<c:forEach items="${cart.cartItems}" var="cartItem" varStatus="loop">
 					<tr>
 						<td>${ cartItem.getTitle() }</td>
 						<td>${ cartItem.getAuthor() }</td>
 						<td><fmt:formatNumber value="${ cartItem.getPrice() }"
 								type="currency" /></td>
 						<td>
-						<input type= "number"
+						<input type="number"
 								name="quantity"
 								min="1"
 								max="50"
@@ -46,8 +46,8 @@
 						<td><fmt:formatNumber value="${ cartItem.getTotalCost() }"
 								type="currency" /></td>
 						<td>
-						<input type="submit" value="update" />
-						<input type="submit" value="Delete" />
+						<input type="submit" value="Update" />
+						<input type="submit" formaction="/cart/delete" value="Delete" />
 						</td>
 
 						<form action="/cart/update" name="cart_form">
