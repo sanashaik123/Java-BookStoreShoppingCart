@@ -91,11 +91,10 @@ public class CartController extends HttpServlet {
 	}
 	private void deleteFromCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String idStr = request.getParameter("id");
-		int id = Integer.parseInt(idStr);
-		Object objCartBean = session.getAttribute("cart");
-		ShoppingCart shoppingCart = (ShoppingCart) objCartBean;
-		shoppingCart.deleteCartItem(id);
+		int index =Integer.parseInt(request.getParameter("index")) ;
+		ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+		cart.deleteCartItem(index);
+		
 		
 		
 	
